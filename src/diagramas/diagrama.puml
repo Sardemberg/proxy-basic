@@ -1,0 +1,22 @@
+interface Image {
+    +display(): void
+}
+
+class ProxyImage {
+    -realImage: RealImage
+    -filename: String
+
+    +ProxyImage(filename: String)
+    +display(): void
+}
+
+class RealImage {
+    -filename: String
+
+    +RealImage(filename: String)
+    +loadFromMemory(): void
+    +display(): void
+}
+
+Image <|.. ProxyImage
+Image <|.. RealImage
